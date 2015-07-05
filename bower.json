@@ -1,0 +1,13 @@
+{
+  "name": "summernote-plugin-markdown",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "summernote": "~0.6.9"
+  }
+}
