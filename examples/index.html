@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>summernote-plugin-markdown Demo</title>
+
+  <!--summernote dependencies-->
+  <script src="components/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">
+  <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css">
+
+  <!--summernote-->
+  <link rel="stylesheet" href="components/summernote/dist/summernote.css" />
+  <script src="components/summernote/dist/summernote.js"></script>
+
+  <script src="components/summernote/plugin/summernote-ext-hint.js"></script>
+  <script src="../src/summernote-ext-markdown.js"></script>
+
+  <style>
+    body {
+      margin: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>summernote-plugin-markdown</h1>
+  <p> A markdown plugin for <a href="http://hackerwins.github.io/summernote/">Summernote</a></p>
+
+  <div id="summernote">Hello Summernote</div>
+
+  <script>
+    $(document).ready(function() {
+      $('#summernote').summernote({
+        height: 500,
+        toolbar : [
+          ['markdown', ['preview']]
+      ]});
+
+    });
+  </script>
+</body>
+</html>
