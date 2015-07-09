@@ -13,11 +13,18 @@
   'use strict';
 
   var tmpl = $.summernote.renderer.getTemplate();
+  var $preview = $('<div>');
 
   $.summernote.addPlugin({
     name: 'markdown',
     init: function (layoutInfo) {
       // intialize as codeview
+      layoutInfo.holder().summernote("toolbar.get", "codeview").click(); // workaround to switch codeview
+      //layoutInfo.holder().summernote('codeview.activate');
+
+      // make preview area
+      var $editable = layoutInfo.editable();
+      $preview.attr('style', $editable.attr('style')).hide().insertAfter($editable);
     },
     buttons: {
       preview: function (lang, options) {
@@ -31,7 +38,8 @@
 
     events: {
       showPreview: function(event, editor, layoutInfo) {
-        var $note = layoutInfo.holder();
+        layoutInfo.codable().toggle();
+        $preview.toggle();
       }
     },
 

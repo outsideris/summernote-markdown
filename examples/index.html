@@ -26,14 +26,23 @@
   <h1>summernote-plugin-markdown</h1>
   <p> A markdown plugin for <a href="http://hackerwins.github.io/summernote/">Summernote</a></p>
 
-  <div id="summernote">Hello Summernote</div>
+  <div id="summernote">
+# Hello Summernote
+
+This is for supporting markdown.
+
+* list 1
+* list 2
+* list 3
+  </div>
 
   <script>
     $(document).ready(function() {
       $('#summernote').summernote({
         height: 500,
         toolbar : [
-          ['markdown', ['preview']]
+          ['markdown', ['preview']],
+          ['misc', ['codeview']]
       ]});
 
     });
