@@ -12,6 +12,11 @@
 }(function ($) {
   'use strict';
 
+  if (typeof window.markdownit !== 'function') {
+    throw new Error( "Markdown plugin requires markdown-it." );
+  }
+
+  var md = window.markdownit();
   var tmpl = $.summernote.renderer.getTemplate();
   var $preview = $('<div>');
 
@@ -20,6 +25,7 @@
     init: function (layoutInfo) {
       // intialize as codeview
       layoutInfo.holder().summernote("toolbar.get", "codeview").click(); // workaround to switch codeview
+      layoutInfo.holder().summernote("toolbar.get", "preview").toggleClass('disabled');
       //layoutInfo.holder().summernote('codeview.activate');
 
       // make preview area
@@ -38,6 +44,7 @@
 
     events: {
       showPreview: function(event, editor, layoutInfo) {
+        $preview.html(md.render(layoutInfo.holder().code()));
         layoutInfo.codable().toggle();
         $preview.toggle();
       }
